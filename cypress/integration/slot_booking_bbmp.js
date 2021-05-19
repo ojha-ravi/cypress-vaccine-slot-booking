@@ -8,14 +8,14 @@ describe("My First Test", () => {
     cy.visit("https://selfregistration.cowin.gov.in/");
     cy.get("input#mat-input-0").type(phoneNumber);
     cy.get(".next-btn").click();
-    cy.get("input#mat-input-1").focus();
+    cy.get("input#mat-input-1").click();
     cy.pause();
   });
   /*
    * 1. User needs to click on Verify button
    * 2. User needs to select beneficiaries by clicking on schedule
    * 3. Click Cypress Resume
-   * 4. Below method will rerun untill it will find a slot
+   * 4. Below method will rerun until it will find a slot
    * 5. Need to add some delay
    */
 
@@ -45,18 +45,16 @@ describe("My First Test", () => {
       cy.wait(100);
       cy.get(".agefilterblock .form-check").first().click();
       cy.wait(100);
-      cy.get(".slots-box")
-        .not(".no-seat")
-        .not(".no-available")
-        .should(($div) => {
-          const n = parseFloat($div.text());
-          expect(n).to.be.gte(0);
-          if (n >= 1) {
-            console.log("SLOTS AVAILABLE");
-            $div.click();
-            // alert("Vaccine Slot Available");
-          }
-        });
+      cy.get(".slots-box").not(".no-seat").not(".no-available").first().click();
+      // .should(($div) => {
+      //   const n = parseFloat($div.text());
+      //   expect(n).to.be.gte(0);
+      //   if (n >= 1) {
+      //     console.log("SLOTS AVAILABLE");
+      //     $div.click();
+      //     // alert("Vaccine Slot Available");
+      //   }
+      // });
     },
   );
 
@@ -68,6 +66,8 @@ describe("My First Test", () => {
         const n = parseFloat($div.text());
         if (!(n >= 1)) {
           window.location.reload();
+        } else {
+          console.log("SLOTS AVAILABLE, SHOULD NOT RELOAD!!");
         }
       });
   });
