@@ -2,7 +2,7 @@ describe("My First Test", () => {
   it("Open Cowin App!", () => {
     cy.viewport(1000, 1000);
     cy.visit("https://selfregistration.cowin.gov.in/");
-    cy.get("input#mat-input-0").type("9968726089");
+    cy.get("input#mat-input-0").type("<your_mobile_number>");
     cy.get(".next-btn").click();
     cy.get("input#mat-input-1").focus();
     cy.pause();    
@@ -14,21 +14,26 @@ describe("My First Test", () => {
   * 4. Below method will rerun untill it will find a slot 
   * 5. Need to add some delay 
   */
+  
+  it("Search by District", () => { 
+    cy.get(".custom-checkbox").click("right"); 
+  }); 
+  
+  it("Select State & District", () => { 
+    cy.get('[formcontrolname="state_id"]').click(); 
+    cy.wait(100); 
+    cy.get('[role="listbox"]').contains("<your_state>").click(); 
+    cy.wait(200); 
+    cy.get('[formcontrolname="district_id"]').click(); 
+    cy.wait(100); 
+    cy.get('[role="listbox"]').contains("<your_district>").click(); 
+    cy.wait(200); 
+   });
+  
   it('.select() - select an option in a <select> element', 
   {
-    "retries": 200000
-  },() => {    
-    // https://on.cypress.io/select   
-    
-    cy.get('.custom-checkbox').click('right')
-    cy.get('[formcontrolname="state_id"]').click()
-    cy.wait(100)
-    cy.get('[role="listbox"]').contains('Karnataka').click()
-    cy.wait(500)
-    cy.get('[formcontrolname="district_id"]').click()
-    cy.wait(100)
-    cy.get('[role="listbox"]').contains('BBMP').click()   
-    cy.wait(500)
+    "retries": 200000 //add this to config file as well
+  },() => {      
     cy.get('.district-search').click()
     cy.wait(1000)
     cy.get(".agefilterblock .form-check").first().click({force: true});
@@ -38,7 +43,7 @@ describe("My First Test", () => {
       const n = parseFloat($div.text())
       expect(n).to.be.gte(0)
       if (n >= 1) {
-          // you can throw your own errors
+          // you can show desktop notification as well
           alert('Vaccine Slot Available')
         }
     })
