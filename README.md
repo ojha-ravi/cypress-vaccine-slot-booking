@@ -12,9 +12,9 @@ npm i
 ```
 
 ### Steps to run run this
-1. Update `cypress.env.json` with your phone number, state and district `(NOTE: State and District name has be exact as it is shown in cowin app)`
+1. Update `cypress.env.json` with your phone number, state and district `(NOTE: `State` and `District` name has to be exact as it comes in cowin app)`
 
-2. In Terminal enter this command
+2. In Terminal enter the below command
 
     ```
     npm run cy:open
@@ -25,13 +25,13 @@ npm i
 
 4. Click on `slot_booking_bbmp.js` in cypress panel.
 
-5. Them A new instance of chrome will be open, enter OTP when it asked for it.
+5. Then A new instance of chrome will be opened, enter OTP when it asks for it.
 
 6. Click on `Verify Otp` button
 
 7. Select a `beneficiary`
 
-8. Click on `play`, you can find something like this on top.
+8. Click on `play`, you can find something like this on top of the opened chrome.
     
     <img src="./assets/replay.png" alt="drawing" style="width:100px;display:block;"/>
 
@@ -39,5 +39,5 @@ npm i
 
 ### Things to consider.
 
+* If it finds any available slot, the page will go to next screen where you will have to select a slot and enter `captcha` and then `confirm`.
 * After almost 15 mins the whole process will start again, so you will have to enter otp again and continue with rest of the steps.
-* If it finds any available slot, the page will go to next screen where you will have to select a slot and enter `captcha`
