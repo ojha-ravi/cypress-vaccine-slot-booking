@@ -8,12 +8,13 @@
 
 ### Install (`Node should be available in your system >= 10.x.x`)
 ```
+git clone https://github.com/rojha-mdsol/cypress-vaccine-slot-booking.git
 cd cypress-vaccine-slot-booking
 npm i
 ```
 
 ### Steps to run this
-1. Update `cypress.env.json` with your phone number, state and district `(NOTE: `State` and `District` name has to be exact as it comes in cowin app)`
+1. Update `cypress.env.json` with your phone number, state and district `(NOTE: State and District name has to be exact as it comes in cowin app)`
 
 2. In Terminal enter the below command
 
