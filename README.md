@@ -6,12 +6,13 @@
 * This works only for existing users.
 * And finally, code quality is not so good at the moment, even selectors are very specific, and might stop working on next `cowin` app release. Its just a POC and can be improved.
 
-### Install
+### Install (`Node should be available in your system >= 10.x.x`)
 ```
+cd cypress-vaccine-slot-booking
 npm i
 ```
 
-### Steps to run run this
+### Steps to run this
 1. Update `cypress.env.json` with your phone number, state and district `(NOTE: `State` and `District` name has to be exact as it comes in cowin app)`
 
 2. In Terminal enter the below command

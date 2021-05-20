@@ -4,7 +4,7 @@ const district = Cypress.env("district");
 
 describe("My First Test", () => {
   it("Open Cowin App!", () => {
-    cy.viewport(1536, 960);
+    cy.viewport(1536, 1020);
     cy.visit("https://selfregistration.cowin.gov.in/");
     cy.get("input#mat-input-0").type(phoneNumber);
     cy.get(".next-btn").click();
@@ -28,8 +28,8 @@ describe("My First Test", () => {
     cy.wait(200);
   });
 
-  it(".select() - select an option in a <select> element", { retries: 2 }, () => {
-    cy.viewport(1536, 960);
+  it(".select() - select an option in a <select> element", { retries: 120 }, () => {
+    cy.viewport(1536, 1020);
     cy.get(".district-search").click();
     cy.wait(100);
     cy.get(".agefilterblock .form-check").first().click();
@@ -38,7 +38,7 @@ describe("My First Test", () => {
       .not(".no-available")
       .then(($ele) => {
         const availableSlots = parseFloat($ele.text());
-        expect(availableSlots).to.be.gte(0);
+        expect(availableSlots).to.be.gte(1);
         if (availableSlots > 1) {
           console.log("SLOTS AVAILABLE");
           $ele.click();
@@ -50,7 +50,7 @@ describe("My First Test", () => {
     cy.get(".slots-box")
       .its("length")
       .then((res) => {
-        if (res > 0) {
+        if (res > 1) {
           window.location.reload();
         } else {
           console.log("SLOTS AVAILABLE, SHOULD NOT RELOAD!!. Please Book Now!!");
