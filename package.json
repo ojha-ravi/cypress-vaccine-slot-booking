@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run --browser chrome --headed --no-exit",
     "cy:open": "cypress open"
   },
   "keywords": [],
