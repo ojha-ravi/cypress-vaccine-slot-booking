@@ -3,14 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
   "devDependencies": {
     "cypress": "^7.3.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:run": "cypress run --browser chrome --headed --no-exit",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "server": "nodemon server/app.js",
+    "find_slot": "node server/app.js & npm run cy:open"
   },
   "keywords": [],
   "author": "",
