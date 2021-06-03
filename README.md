@@ -44,7 +44,4 @@ npm i
 * If it finds any available slot, the page will go to next screen where you will have to select a slot and enter `captcha` and then `confirm`.
 * After almost 15 mins the whole process will start again, so you will have to enter otp again and continue with rest of the steps.
 
-Contribution:
-* Suyash Nigam
-* Ravi Ojha
-* Yogesh Mishra
+## Number of Slots booked till now using this: 2
